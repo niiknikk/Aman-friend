@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+// font family
+$lato: 'Lato', sans-serif;
+$opensans: 'Open Sans', sans-serif;
+
+// colors
+$bg-grey: #F5F5F5;
+$primary-blue: #4B53BC;
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+
+    box-sizing: border-box;
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+}
+
+a{text-decoration: none;}
+
+ul{list-style-type: none;}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+}
+
+.heading-primary{
+    font-size: 4rem;
+    color: $primary-blue;
+    font-family: $opensans;
+    display: block;
+}
+.heading-secondary{
+    font-size: 3.5rem;
+    color: #111;
+    font-family: $opensans;
+    font-weight: 300;
+}
+  
+// buttons
+.btn{
+    text-align: center;
+    &:focus{
+        outline: 0;
+    }
+    &-nav{
+        background-color: $primary-blue;
+        color: #fff;
+        padding: .7rem 1rem;
+        font-size: 1.4rem;
+
+        &:hover{
+           text-decoration: underline;
+        }
+    }
+    &-blue{
+        margin: 2rem 0;
+        display: block;
+        width: 20rem;
+        padding: 0.8rem 1.5rem;
+        background-color: $primary-blue;
+        color: #fff;
+        transform: all 0.3s ease-in;
+        font-size: 1.6rem;
+        font-family: $opensans;
+        font-weight: 400;
+        font-size: 1.5rem;
+        &:hover{
+            opacity: 0.97;
+            text-decoration: underline;
+         }
+    }
+    &-blue-outline{
+        margin: 2rem 0;
+        
+        display: block;
+        width: 20rem;
+        padding: 0.8rem 1.5rem;
+        border:2px solid $primary-blue;
+        color: #111;
+        transform: all 0.3s ease-in;
+        font-size: 1.6rem;
+        font-family: $opensans;
+        font-weight: 400;
+        font-size: 1.5rem;
+        &:hover{
+            opacity: 0.97;
+            text-decoration: underline;
+         }
+    }
+}
+
+
+
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-15rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(15rem);
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
